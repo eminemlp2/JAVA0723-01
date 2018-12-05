@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.offcn.dao.MobileDao">
+
+	<resultMap type="com.offcn.bean.Mobile" id="mobile">
+		<id property="id" column="id" />
+		<result property="number" column="number" />
+		<result property="area" column="area" />
+		<result property="mobiletype" column="mobiletype" />
+		<result property="areacode" column="areacode" />
+		<result property="postcode" column="postcode" />
+	</resultMap>
+
+
+	<select id="selectAddress" parameterType="String" resultMap="mobile">
+		SELECT DISTINCT * FROM mobile WHERE number=#{number};
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+	<!-- <resultMap type="com.offcn.bean.GrainAndOil" id="GrainAndOil"> <id 
+		property="id" column="id"/> <result property="name" column="name"/> <result 
+		property="floorPrice" column="floorPrice"/> <result property="middleRate" 
+		column="middleRate"/> <result property="topPrice" column="topPrice"/> <result 
+		property="units" column="units"/> <result property="date" column="date"/> 
+		</resultMap> <insert id="save" parameterType="java.util.List"> insert into 
+		farm_product(name,floorPrice,middleRate,topPrice,units,date) values <foreach 
+		collection="list" item="gao" separator=","> (#{gao.name},#{gao.floorPrice},#{gao.middleRate},#{gao.topPrice},#{gao.units},#{gao.date}) 
+		</foreach> </insert> <select id="getData" parameterType="String" resultMap="GrainAndOil"> 
+		select * from farm_product where date between #{begin} and #{end} and name='白条猪（瘦）'; 
+		</select> -->
+</mapper>
